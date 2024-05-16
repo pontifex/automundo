@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Commands;
 
-use App\Commands\AddBrandCommand;
+use App\Factories\Jobs\AddBrandFactory;
 use App\Http\Requests\AddBrand as AddBrandRequest;
-use App\Jobs\AddBrand;
 use App\Serializers\ISerializer;
 use App\Serializers\Serialize;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -27,13 +26,11 @@ class AddBrandController extends BaseController
     {
         $id = Str::uuid();
 
-        $command = new AddBrandCommand(
-            $id->toString(),
-            $request->get($this->serializer->getType())['name']
-        );
-
         $this->dispatch(
-            new AddBrand($command)
+            AddBrandFactory::makeAddBrand(
+                $id->toString(),
+                $request
+            )
         );
 
         return new JsonResponse(

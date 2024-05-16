@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Commands;
 
-use App\Commands\AddModelCommand;
+use App\Factories\Jobs\AddModelFactory;
 use App\Http\Requests\AddModel as AddModelRequest;
-use App\Jobs\AddModel;
 use App\Serializers\ISerializer;
 use App\Serializers\Serialize;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -27,14 +26,8 @@ class AddModelController extends BaseController
     {
         $id = Str::uuid();
 
-        $command = new AddModelCommand(
-            $id->toString(),
-            $request->get($this->serializer->getType())['name'],
-            $request->get($this->serializer->getType())['brand_id']
-        );
-
         $this->dispatch(
-            new AddModel($command)
+            AddModelFactory::makeAddModel($id->toString(), $request)
         );
 
         return new JsonResponse(
