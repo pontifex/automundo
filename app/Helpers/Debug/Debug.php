@@ -15,7 +15,7 @@ trait Debug
             return;
         }
 
-        if (null !== $msg) {
+        if ($msg !== null) {
             $msg = json_encode($msg);
         }
 

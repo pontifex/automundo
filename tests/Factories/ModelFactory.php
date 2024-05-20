@@ -14,11 +14,11 @@ class ModelFactory
         string $name = 'V50',
         string $slug = 'v50'
     ): Model {
-        if (null === $id) {
+        if ($id === null) {
             $id = Str::uuid()->toString();
         }
 
-        if (null === $brand) {
+        if ($brand === null) {
             $brand = BrandFactory::make();
         }
 

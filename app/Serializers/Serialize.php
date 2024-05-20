@@ -35,8 +35,8 @@ trait Serialize
     ): array {
         return [
             $serializer->getType() => [
-                'id' => $id
-            ]
+                'id' => $id,
+            ],
         ];
     }
 }

@@ -85,7 +85,7 @@ class BrandSerializerTest extends TestCase
             [
                 'id' => $id,
                 'name' => 'LEXUS',
-                'slug' => $slug
+                'slug' => $slug,
             ],
             $result
         );

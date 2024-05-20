@@ -27,7 +27,7 @@ class AddBrand extends FormRequest
             sprintf('%s.name', BrandSerializer::getType()) => [
                 'required',
                 'string',
-                $this->uniqueBrand
+                $this->uniqueBrand,
             ],
         ];
     }

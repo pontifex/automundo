@@ -30,7 +30,7 @@ class SQLModelRepository implements IModelRepository
     {
         $modelORM = ModelORM::find($id);
 
-        if (null === $modelORM) {
+        if ($modelORM === null) {
             throw new ResourceNotFoundException();
         }
 
@@ -66,6 +66,6 @@ class SQLModelRepository implements IModelRepository
             ->where('brand_id', $brandId)
             ->exists();
 
-        return !$existingModel;
+        return ! $existingModel;
     }
 }

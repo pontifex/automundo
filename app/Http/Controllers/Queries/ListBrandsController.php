@@ -29,6 +29,7 @@ class ListBrandsController extends BaseController
     use Serialize;
 
     private const DEFAULT_PAGE_NUMBER = 1;
+
     private const DEFAULT_SIZE = 15;
 
     public function __construct(

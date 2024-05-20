@@ -19,7 +19,7 @@ class Model implements IHydrateable, ISerializable
         string $id,
         string $name,
         string $slug,
-        Brand $brand = null
+        ?Brand $brand = null
     ) {
         $this->id = $id;
         $this->name = $name;
