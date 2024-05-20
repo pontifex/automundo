@@ -39,18 +39,16 @@ class UniqueModelTest extends TestCase
     public static function modelDataProvider(): array
     {
         return [
-            'unique_model_should_pass' =>
-                [
-                    Str::uuid()->toString(),
-                    'A4',
-                    true
-                ],
-            'non_unique_model_should_fail' =>
-                [
-                    Str::uuid()->toString(),
-                    'V50',
-                    false
-                ],
+            'unique_model_should_pass' => [
+                Str::uuid()->toString(),
+                'A4',
+                true,
+            ],
+            'non_unique_model_should_fail' => [
+                Str::uuid()->toString(),
+                'V50',
+                false,
+            ],
         ];
     }
 }

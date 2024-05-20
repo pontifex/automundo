@@ -29,12 +29,12 @@ class AddModel extends FormRequest
             sprintf('%s.brand_id', ModelSerializer::getType()) => [
                 'required',
                 'string',
-                $this->existingBrand
+                $this->existingBrand,
             ],
             sprintf('%s.name', ModelSerializer::getType()) => [
                 'required',
                 'string',
-                $this->uniqueModel
+                $this->uniqueModel,
             ],
         ];
     }

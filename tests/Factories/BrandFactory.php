@@ -12,7 +12,7 @@ class BrandFactory
         string $name = 'Volvo',
         string $slug = 'volvo'
     ): Brand {
-        if (null === $id) {
+        if ($id === null) {
             $id = Str::uuid()->toString();
         }
 

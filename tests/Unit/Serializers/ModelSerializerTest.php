@@ -86,7 +86,7 @@ class ModelSerializerTest extends TestCase
             [
                 'id' => $id,
                 'name' => $name,
-                'slug' => $slug
+                'slug' => $slug,
             ],
             $result
         );

@@ -29,7 +29,7 @@ class SQLBrandRepository implements IBrandRepository
     {
         $brandORM = BrandORM::find($id);
 
-        if (null === $brandORM) {
+        if ($brandORM === null) {
             throw new ResourceNotFoundException();
         }
 
@@ -63,6 +63,6 @@ class SQLBrandRepository implements IBrandRepository
     {
         $existingBrand = BrandORM::where('slug', $slug)->exists();
 
-        return !$existingBrand;
+        return ! $existingBrand;
     }
 }

@@ -28,7 +28,7 @@ Route::post(
     '/brands',
     [
         AddBrandController::class,
-        'index'
+        'index',
     ]
 );
 
@@ -36,7 +36,7 @@ Route::get(
     '/brands/{id}',
     [
         ShowBrandController::class,
-        'index'
+        'index',
     ]
 );
 
@@ -44,7 +44,7 @@ Route::get(
     '/brands',
     [
         ListBrandsController::class,
-        'index'
+        'index',
     ]
 );
 
@@ -54,6 +54,6 @@ Route::post(
     '/models',
     [
         AddModelController::class,
-        'index'
+        'index',
     ]
 );

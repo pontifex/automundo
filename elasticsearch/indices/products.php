@@ -21,8 +21,8 @@ return [
                 ],
                 'mileage_distance' => [
                     'type' => 'integer',
-                ]
-            ]
-        ]
-    ]
+                ],
+            ],
+        ],
+    ],
 ];

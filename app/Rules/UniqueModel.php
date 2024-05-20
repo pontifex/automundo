@@ -35,7 +35,7 @@ class UniqueModel implements DataAwareRule, ValidationRule
     ): void {
         $brandId = $this->data[ModelSerializer::getType()]['brand_id'] ?? '';
 
-        if (!$this->modelRepository->isUnique(Str::slug($value), $brandId)) {
+        if (! $this->modelRepository->isUnique(Str::slug($value), $brandId)) {
             $fail('Model already exists');
         }
     }

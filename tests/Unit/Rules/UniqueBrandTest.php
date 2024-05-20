@@ -37,16 +37,14 @@ class UniqueBrandTest extends TestCase
     public static function brandDataProvider(): array
     {
         return [
-            'unique_brand_should_pass' =>
-                [
-                    Str::uuid()->toString(),
-                    true
-                ],
-            'non_unique_brand_should_fail' =>
-                [
-                    Str::uuid()->toString(),
-                    false
-                ],
+            'unique_brand_should_pass' => [
+                Str::uuid()->toString(),
+                true,
+            ],
+            'non_unique_brand_should_fail' => [
+                Str::uuid()->toString(),
+                false,
+            ],
         ];
     }
 }
