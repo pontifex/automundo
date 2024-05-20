@@ -43,3 +43,6 @@ jobs:
 
       - name: Run unit tests
         run: vendor/bin/phpunit
+
+      - name: Run Pint
+        run: vendor/bin/pint app --test
