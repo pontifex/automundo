@@ -9,6 +9,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class AddModel extends FormRequest
 {
+    /**
+     * @psalm-api
+     */
     public function __construct(
         private readonly ExistingBrand $existingBrand,
         private readonly UniqueModel $uniqueModel,
@@ -23,6 +26,9 @@ class AddModel extends FormRequest
         parent::__construct($query, $request, $attributes, $cookies, $files, $server, $content);
     }
 
+    /**
+     * @psalm-api
+     */
     public function rules(): array
     {
         return [

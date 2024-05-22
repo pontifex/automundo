@@ -31,6 +31,7 @@ class ShowBrandController extends BaseController
     }
 
     /**
+     * @psalm-api
      * @throws IncorrectFieldException
      * @throws NoFieldsException
      * @throws ResourceNotFoundException

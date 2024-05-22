@@ -24,6 +24,11 @@ readonly class ExistingBrand implements ValidationRule
         mixed $value,
         \Closure $fail
     ): void {
+        if (! is_string($value)) {
+            $fail('Brand not exist');
+            return;
+        }
+
         try {
             $this->brandRepository->getOneById($value);
         } catch (ResourceNotFoundException) {

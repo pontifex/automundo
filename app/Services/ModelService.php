@@ -10,6 +10,9 @@ use App\Repositories\IModelRepository;
 
 readonly class ModelService
 {
+    /**
+     * @psalm-api
+     */
     public function __construct(
         private IModelRepository $modelRepository,
         private IBrandRepository $brandRepository

@@ -24,7 +24,10 @@ readonly class UniqueBrand implements ValidationRule
         mixed $value,
         \Closure $fail
     ): void {
-        if (! $this->brandRepository->isUnique(Str::slug($value))) {
+        if (
+            ! is_string($value)
+            || ! $this->brandRepository->isUnique(Str::slug($value))
+        ) {
             $fail('Brand already exists');
         }
     }
