@@ -18,6 +18,9 @@ class UniqueModel implements DataAwareRule, ValidationRule
 {
     private array $data = [];
 
+    /**
+     * @psalm-api
+     */
     public function __construct(
         private readonly IModelRepository $modelRepository
     ) {
@@ -35,7 +38,10 @@ class UniqueModel implements DataAwareRule, ValidationRule
     ): void {
         $brandId = $this->data[ModelSerializer::getType()]['brand_id'] ?? '';
 
-        if (! $this->modelRepository->isUnique(Str::slug($value), $brandId)) {
+        if (
+            ! is_string($value)
+            || ! $this->modelRepository->isUnique(Str::slug($value), $brandId)
+        ) {
             $fail('Model already exists');
         }
     }

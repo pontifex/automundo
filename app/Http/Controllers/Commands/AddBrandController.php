@@ -22,6 +22,9 @@ class AddBrandController extends BaseController
     ) {
     }
 
+    /**
+     * @psalm-api
+     */
     public function index(AddBrandRequest $request): Response
     {
         $id = Str::uuid();

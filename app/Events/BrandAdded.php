@@ -9,6 +9,9 @@ final class BrandAdded
 {
     use Dispatchable;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(
         private readonly Brand $brand
     ) {

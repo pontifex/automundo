@@ -21,6 +21,9 @@ class AddBrand implements ShouldQueue
     ) {
     }
 
+    /**
+     * @psalm-api
+     */
     public function handle(BrandService $service): void
     {
         $brand = $service->addOne(

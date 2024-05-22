@@ -23,6 +23,7 @@ class AddModel implements ShouldQueue
     }
 
     /**
+     * @psalm-api
      * @throws ResourceNotFoundException
      */
     public function handle(

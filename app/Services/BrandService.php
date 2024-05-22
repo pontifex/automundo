@@ -9,6 +9,9 @@ use App\Repositories\IBrandRepository;
 
 readonly class BrandService
 {
+    /**
+     * @psalm-api
+     */
     public function __construct(
         private IBrandRepository $brandRepository
     ) {

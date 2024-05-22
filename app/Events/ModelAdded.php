@@ -9,6 +9,9 @@ final class ModelAdded
 {
     use Dispatchable;
 
+    /**
+     * @psalm-api
+     */
     public function __construct(
         private readonly Model $model
     ) {

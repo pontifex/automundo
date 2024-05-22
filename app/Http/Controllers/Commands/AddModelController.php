@@ -22,6 +22,9 @@ class AddModelController extends BaseController
     ) {
     }
 
+    /**
+     * @psalm-api
+     */
     public function index(AddModelRequest $request): Response
     {
         $id = Str::uuid();
