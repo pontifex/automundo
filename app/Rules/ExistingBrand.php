@@ -29,6 +29,7 @@ readonly class ExistingBrand implements ValidationRule
     ): void {
         if (! is_string($value)) {
             $fail('Brand not exist');
+
             return;
         }
 
