@@ -5,7 +5,7 @@ namespace App\Events;
 use App\Domain\Entities\Model;
 use Illuminate\Foundation\Events\Dispatchable;
 
-final class ModelAdded
+readonly class ModelAdded
 {
     use Dispatchable;
 
@@ -13,7 +13,7 @@ final class ModelAdded
      * @psalm-api
      */
     public function __construct(
-        private readonly Model $model
+        private Model $model
     ) {
     }
 

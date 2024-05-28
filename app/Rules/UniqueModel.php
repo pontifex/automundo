@@ -43,9 +43,11 @@ class UniqueModel implements DataAwareRule, ValidationRule
          *          name: string
          *      }
          *  }
-         *     $this->data
+         *     $data
          */
-        $brandId = $this->data[ModelSerializer::getType()]['brand_id'] ?? '';
+        $data = $this->data;
+
+        $brandId = $data[ModelSerializer::getType()]['brand_id'] ?? '';
 
         if (
             ! is_string($value)
