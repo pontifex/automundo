@@ -17,7 +17,7 @@ class SQLModelRepository implements IModelRepository
             $model->getId(),
             $model->getName(),
             $model->getSlug(),
-            $model->getBrand()->getId()
+            $model->getBrand()?->getId() ?? ''
         );
 
         $modelORM->save();
@@ -49,6 +49,7 @@ class SQLModelRepository implements IModelRepository
             ->get();
 
         $models = [];
+        /** @psalm-var array{id: string, name: string, slug: string} $item */
         foreach ($collection->toArray() as $item) {
             $models[] = new Model(
                 $item['id'],

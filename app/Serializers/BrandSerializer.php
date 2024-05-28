@@ -9,6 +9,9 @@ class BrandSerializer implements ISerializer
 {
     private const TYPE = 'brands';
 
+    /**
+     * @psalm-return 'brands'
+     */
     public static function getType(): string
     {
         return self::TYPE;
@@ -23,6 +26,7 @@ class BrandSerializer implements ISerializer
         }
 
         $serialized = [];
+        /** @psalm-var string $field */
         foreach ($fields[self::TYPE] as $field) {
             switch ($field) {
                 case 'id':

@@ -7,6 +7,7 @@ use App\Exceptions\ResourceNotFoundException;
 use App\Factories\Entities\BrandFactory;
 use App\Factories\Models\BrandFactory as BrandORMFactory;
 use App\Models\Brand as BrandORM;
+use App\Serializers\ISerializable;
 
 class SQLBrandRepository implements IBrandRepository
 {
@@ -39,6 +40,9 @@ class SQLBrandRepository implements IBrandRepository
         );
     }
 
+    /**
+     * @psalm-return array<ISerializable>
+     */
     public function list(int $pageNumber, int $pageSize): array
     {
         $offset = ($pageNumber - 1) * $pageSize;
@@ -48,6 +52,7 @@ class SQLBrandRepository implements IBrandRepository
             ->get();
 
         $brands = [];
+        /** @psalm-var array{id: string, name: string, slug: string} $item */
         foreach ($collection->toArray() as $item) {
             $brands[] = new Brand(
                 $item['id'],

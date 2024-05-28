@@ -13,7 +13,6 @@ use Illuminate\Routing\Controller as BaseController;
 use Pontifex\Rest\Api\Fields\Exceptions\IncorrectFieldException;
 use Pontifex\Rest\Api\Fields\Exceptions\NoFieldsException;
 use Pontifex\Rest\Api\Fields\Fields;
-use Pontifex\Rest\Api\IApi;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,7 +38,7 @@ class ShowBrandController extends BaseController
     public function index(Request $request, string $id): Response
     {
         $fields = $this->getFields(
-            $request->get(IApi::FIELDS_PARAM, []),
+            $request->query,
             $this->serializer->getType(),
             Brand::getAllowedFields()
         );

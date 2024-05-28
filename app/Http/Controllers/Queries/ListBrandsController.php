@@ -13,7 +13,6 @@ use Illuminate\Routing\Controller as BaseController;
 use Pontifex\Rest\Api\Fields\Exceptions\IncorrectFieldException;
 use Pontifex\Rest\Api\Fields\Exceptions\NoFieldsException;
 use Pontifex\Rest\Api\Fields\Fields;
-use Pontifex\Rest\Api\IApi;
 use Pontifex\Rest\Api\Pagination\Exceptions\IncorrectPageNumberException;
 use Pontifex\Rest\Api\Pagination\Exceptions\IncorrectPageSizeException;
 use Pontifex\Rest\Api\Pagination\Pagination;
@@ -49,13 +48,13 @@ class ListBrandsController extends BaseController
     public function index(Request $request): Response
     {
         [$pageNumber, $pageSize] = $this->extractPaginationParams(
-            $request->get(IApi::PAGE_PARAM, []),
+            $request->query,
             self::DEFAULT_PAGE_NUMBER,
             self::DEFAULT_SIZE
         );
 
         $fields = $this->getFields(
-            $request->get(IApi::FIELDS_PARAM, []),
+            $request->query,
             $this->serializer->getType(),
             Brand::getAllowedFields()
         );

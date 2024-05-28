@@ -6,10 +6,14 @@ use App\Rules\UniqueBrand;
 use App\Serializers\BrandSerializer;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class AddBrand extends FormRequest
 {
     /**
      * @psalm-api
+     * @psalm-param string|resource|null $content
      */
     public function __construct(
         private readonly UniqueBrand $uniqueBrand,

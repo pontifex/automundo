@@ -14,6 +14,9 @@ use Illuminate\Contracts\Validation\ValidationRule;
  */
 readonly class ExistingBrand implements ValidationRule
 {
+    /**
+     * @psalm-api
+     */
     public function __construct(
         private IBrandRepository $brandRepository
     ) {

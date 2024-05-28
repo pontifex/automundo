@@ -7,10 +7,14 @@ use App\Rules\UniqueModel;
 use App\Serializers\ModelSerializer;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class AddModel extends FormRequest
 {
     /**
      * @psalm-api
+     * @psalm-param string|resource|null $content
      */
     public function __construct(
         private readonly ExistingBrand $existingBrand,

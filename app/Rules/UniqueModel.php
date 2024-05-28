@@ -36,6 +36,16 @@ class UniqueModel implements DataAwareRule, ValidationRule
         mixed $value,
         \Closure $fail
     ): void {
+        /**
+         * @psalm-var array{
+         *      models: array{
+         *          brand_id: string,
+         *          name: string
+         *      }
+         *  }
+         *     $this->data
+         */
+
         $brandId = $this->data[ModelSerializer::getType()]['brand_id'] ?? '';
 
         if (

@@ -6,6 +6,7 @@ use App\Domain\Entities\Brand;
 use App\Exceptions\ResourceNotFoundException;
 use App\Factories\Entities\BrandFactory;
 use App\Repositories\IBrandRepository;
+use App\Serializers\ISerializable;
 
 readonly class BrandService
 {
@@ -39,6 +40,9 @@ readonly class BrandService
         return $this->brandRepository->getOneById($id);
     }
 
+    /**
+     * @psalm-return array<ISerializable>
+     */
     public function list(int $pageNumber, int $pageSize): array
     {
         return $this->brandRepository->list(
