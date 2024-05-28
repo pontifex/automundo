@@ -13,6 +13,7 @@ class AddBrand extends FormRequest
 {
     /**
      * @psalm-api
+     *
      * @psalm-param string|resource|null $content
      */
     public function __construct(
