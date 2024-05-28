@@ -2470,16 +2470,16 @@
         },
         {
             "name": "pontifex/rest",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pontifex/rest.git",
-                "reference": "5b9a3c4cd5f5eca2ec1f991e58e938e35c73fd59"
+                "reference": "69e39b7ce915162203abb4a42024d71e0bf91c13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pontifex/rest/zipball/5b9a3c4cd5f5eca2ec1f991e58e938e35c73fd59",
-                "reference": "5b9a3c4cd5f5eca2ec1f991e58e938e35c73fd59",
+                "url": "https://api.github.com/repos/pontifex/rest/zipball/69e39b7ce915162203abb4a42024d71e0bf91c13",
+                "reference": "69e39b7ce915162203abb4a42024d71e0bf91c13",
                 "shasum": ""
             },
             "require": {
@@ -2500,9 +2500,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pontifex/rest/issues",
-                "source": "https://github.com/pontifex/rest/tree/v2.0.0"
+                "source": "https://github.com/pontifex/rest/tree/v2.0.1"
             },
-            "time": "2024-05-28T12:45:02+00:00"
+            "time": "2024-05-28T13:14:11+00:00"
         },
         {
             "name": "psr/clock",
@@ -9376,5 +9376,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.2.0"
 }
