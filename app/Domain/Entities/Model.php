@@ -5,26 +5,14 @@ namespace App\Domain\Entities;
 use App\Hydrators\IHydrateable;
 use App\Serializers\ISerializable;
 
-class Model implements IHydrateable, ISerializable
+readonly class Model implements IHydrateable, ISerializable
 {
-    private string $id;
-
-    private string $name;
-
-    private string $slug;
-
-    private ?Brand $brand;
-
     public function __construct(
-        string $id,
-        string $name,
-        string $slug,
-        ?Brand $brand = null
+        private string $id,
+        private string $name,
+        private string $slug,
+        private ?Brand $brand = null
     ) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->slug = $slug;
-        $this->brand = $brand;
     }
 
     public function getId(): string
@@ -47,6 +35,9 @@ class Model implements IHydrateable, ISerializable
         return $this->brand;
     }
 
+    /**
+     * @psalm-return array<string>
+     */
     public static function getAllowedFields(): array
     {
         return [

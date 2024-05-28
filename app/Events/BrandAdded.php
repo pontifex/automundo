@@ -5,7 +5,7 @@ namespace App\Events;
 use App\Domain\Entities\Brand;
 use Illuminate\Foundation\Events\Dispatchable;
 
-final class BrandAdded
+readonly class BrandAdded
 {
     use Dispatchable;
 
@@ -13,7 +13,7 @@ final class BrandAdded
      * @psalm-api
      */
     public function __construct(
-        private readonly Brand $brand
+        private Brand $brand
     ) {
     }
 
