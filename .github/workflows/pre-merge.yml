@@ -46,3 +46,6 @@ jobs:
 
       - name: Run Pint
         run: vendor/bin/pint app --test
+
+      - name: Run Psalm
+        run: vendor/bin/psalm "--config=./psalm.xml" "--no-cache" "--memory-limit=2560M" "--threads=1"

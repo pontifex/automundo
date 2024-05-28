@@ -14,6 +14,9 @@ use Illuminate\Support\Str;
  */
 readonly class UniqueBrand implements ValidationRule
 {
+    /**
+     * @psalm-api
+     */
     public function __construct(
         private IBrandRepository $brandRepository
     ) {

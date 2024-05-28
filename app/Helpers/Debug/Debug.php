@@ -7,24 +7,9 @@ use Illuminate\Support\Facades\Log;
 
 trait Debug
 {
-    public function debug($msg): void
-    {
-        $isDebugEnabled = env('APP_DEBUG');
-
-        if (! $isDebugEnabled) {
-            return;
-        }
-
-        if ($msg !== null) {
-            $msg = json_encode($msg);
-        }
-
-        Log::debug($msg);
-    }
-
     public function debugException(\Exception $e): void
     {
-        $isDebugEnabled = env('APP_DEBUG');
+        $isDebugEnabled = (bool) env('APP_DEBUG', false);
 
         if (! $isDebugEnabled) {
             return;

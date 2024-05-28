@@ -13,9 +13,12 @@ class AddBrandFactory
         string $id,
         AddBrandRequest $request
     ): AddBrand {
+        /** @psalm-var array{name: string} $modelData */
+        $modelData = $request->get(BrandSerializer::getType());
+
         $command = new AddBrandCommand(
             $id,
-            $request->get(BrandSerializer::getType())['name']
+            $modelData['name']
         );
 
         return new AddBrand($command);

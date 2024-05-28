@@ -9,6 +9,9 @@ class ModelSerializer implements ISerializer
 {
     private const TYPE = 'models';
 
+    /**
+     * @psalm-return 'models'
+     */
     public static function getType(): string
     {
         return self::TYPE;
@@ -23,6 +26,7 @@ class ModelSerializer implements ISerializer
         }
 
         $serialized = [];
+        /** @psalm-var string $field */
         foreach ($fields[self::TYPE] as $field) {
             switch ($field) {
                 case 'id':

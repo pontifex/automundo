@@ -8,14 +8,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Query\Builder;
 
 /**
- * @property string $id
- * @property string $name
- * @property string $slug
+ * @psalm-property string $id
+ * @psalm-property string $name
+ * @psalm-property string $slug
  *
- * @method static void save()
+ * @method static bool save(array $options=[])
  * @method static Builder where(string $fieldName, mixed $fieldValue)
- * @method static Brand find(string $id)
+ * @method static Brand|null find(string $id)
  * @method static Builder offset(int $offset)
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
  */
 class Brand extends EloquentModel
 {

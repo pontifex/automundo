@@ -10,6 +10,7 @@ trait Serialize
         array $fields
     ): array {
         $serialized = [];
+        /** @psalm-var ISerializable $item */
         foreach ($collection as $item) {
             $serialized[] = $serializer->serialize($item, $fields);
         }

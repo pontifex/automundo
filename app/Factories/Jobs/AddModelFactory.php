@@ -13,10 +13,13 @@ class AddModelFactory
         string $id,
         AddModelRequest $request
     ): AddModel {
+        /** @psalm-var array{name: string, brand_id: string} $brandData */
+        $brandData = $request->get(ModelSerializer::getType());
+
         $command = new AddModelCommand(
             $id,
-            $request->get(ModelSerializer::getType())['name'],
-            $request->get(ModelSerializer::getType())['brand_id']
+            $brandData['name'],
+            $brandData['brand_id']
         );
 
         return new AddModel($command);
