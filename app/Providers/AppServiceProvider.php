@@ -4,15 +4,22 @@ namespace App\Providers;
 
 use App\Http\Controllers\Commands\AddBrandController;
 use App\Http\Controllers\Commands\AddModelController;
+use App\Http\Controllers\Commands\AddProductController;
 use App\Http\Controllers\Queries\ListBrandsController;
+use App\Http\Controllers\Queries\ListProductsController;
 use App\Http\Controllers\Queries\ShowBrandController;
+use App\Http\Controllers\Queries\ShowProductController;
 use App\Repositories\IBrandRepository;
 use App\Repositories\IModelRepository;
+use App\Repositories\IProductRepository;
 use App\Repositories\SQLBrandRepository;
 use App\Repositories\SQLModelRepository;
+use App\Repositories\SQLProductRepository;
 use App\Serializers\BrandSerializer;
 use App\Serializers\ModelSerializer;
+use App\Serializers\ProductSerializer;
 use App\Services\BrandService;
+use App\Services\ProductService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -34,10 +41,23 @@ class AppServiceProvider extends ServiceProvider
             );
         });
 
+        $this->app->bind(AddProductController::class, function ($app) {
+            return new AddProductController(
+                $app->get(ProductSerializer::class)
+            );
+        });
+
         $this->app->bind(ListBrandsController::class, function ($app) {
             return new ListBrandsController(
                 $app->get(BrandService::class),
                 $app->get(BrandSerializer::class)
+            );
+        });
+
+        $this->app->bind(ListProductsController::class, function ($app) {
+            return new ListProductsController(
+                $app->get(ProductService::class),
+                $app->get(ProductSerializer::class)
             );
         });
 
@@ -48,12 +68,23 @@ class AppServiceProvider extends ServiceProvider
             );
         });
 
+        $this->app->bind(ShowProductController::class, function ($app) {
+            return new ShowProductController(
+                $app->get(ProductService::class),
+                $app->get(ProductSerializer::class)
+            );
+        });
+
         $this->app->bind(IBrandRepository::class, function ($app) {
             return new SQLBrandRepository();
         });
 
         $this->app->bind(IModelRepository::class, function ($app) {
             return new SQLModelRepository();
+        });
+
+        $this->app->bind(IProductRepository::class, function ($app) {
+            return new SQLProductRepository();
         });
     }
 
