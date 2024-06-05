@@ -7,7 +7,7 @@ use App\Exceptions\ResourceNotFoundException;
 use App\Helpers\Debug\Debug;
 use App\Serializers\ISerializer;
 use App\Serializers\Serialize;
-use App\Services\ProductService;
+use App\Services\ProductSearchService;
 use Exception;
 use Illuminate\Routing\Controller as BaseController;
 use Pontifex\Rest\Api\Fields\Exceptions\IncorrectFieldException;
@@ -24,7 +24,7 @@ class ShowProductController extends BaseController
     use Serialize;
 
     public function __construct(
-        private readonly ProductService $productService,
+        private readonly ProductSearchService $productSearchService,
         private readonly ISerializer $serializer
     ) {
     }
@@ -45,7 +45,7 @@ class ShowProductController extends BaseController
         );
 
         try {
-            $product = $this->productService->getOneById($id);
+            $product = $this->productSearchService->getOneById($id);
         } catch (ResourceNotFoundException $e) {
             throw $e;
         } catch (Exception $e) {

@@ -7,7 +7,7 @@ use App\Exceptions\ResourceNotFoundException;
 use App\Helpers\Debug\Debug;
 use App\Serializers\ISerializer;
 use App\Serializers\Serialize;
-use App\Services\ProductService;
+use App\Services\ProductSearchService;
 use Exception;
 use Illuminate\Routing\Controller as BaseController;
 use Pontifex\Rest\Api\Fields\Exceptions\IncorrectFieldException;
@@ -32,7 +32,7 @@ class ListProductsController extends BaseController
     private const DEFAULT_SIZE = 15;
 
     public function __construct(
-        private readonly ProductService $productService,
+        private readonly ProductSearchService $productSearchService,
         private readonly ISerializer $serializer
     ) {
     }
@@ -61,7 +61,7 @@ class ListProductsController extends BaseController
         );
 
         try {
-            $products = $this->productService->list(
+            $products = $this->productSearchService->list(
                 $pageNumber,
                 $pageSize
             );

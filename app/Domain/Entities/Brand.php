@@ -2,10 +2,9 @@
 
 namespace App\Domain\Entities;
 
-use App\Hydrators\IHydrateable;
 use App\Serializers\ISerializable;
 
-readonly class Brand implements IHydrateable, ISerializable
+readonly class Brand implements ISerializable
 {
     public function __construct(
         private string $id,
