@@ -19,8 +19,16 @@ return [
                 'price_amount' => [
                     'type' => 'integer',
                 ],
+                'price_currency' => [
+                    'type' => 'text',
+                    'analyzer' => 'standard',
+                ],
                 'mileage_distance' => [
                     'type' => 'integer',
+                ],
+                'mileage_unit' => [
+                    'type' => 'text',
+                    'analyzer' => 'standard',
                 ],
             ],
         ],
