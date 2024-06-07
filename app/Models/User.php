@@ -4,14 +4,23 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
+ *
+ * @psalm-property string $email
+ * @psalm-property string $password
+ *
+ * @method static Builder where(string $fieldName, mixed $fieldValue)
+ * @method static User create(array $userProperties)
  */
 class User extends Authenticatable
 {
+    use HasApiTokens;
     use HasFactory;
     use Notifiable;
 

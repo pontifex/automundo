@@ -33,6 +33,11 @@ Recreate index for products: ```php artisan elasticsearch:index:recreate product
 ```vendor/bin/phpunit```
 
 ### Endpoints (check: tests/Feature/Postman/AutoMundo.postman_collection.json)
+- ```POST /register``` Register user
+- ```POST /login``` Login user
+- ```GET /profile``` Info about user
+- ```GET /refresh-token``` Refresh token
+- ```GET /logout``` Logout user
 - ```POST /brands``` Add brand
 - ```GET /brands/{id}``` Show brand
 - ```GET /brands``` List brands
