@@ -13,12 +13,7 @@ readonly class ModelAdded
      * @psalm-api
      */
     public function __construct(
-        private Model $model
+        public Model $model
     ) {
-    }
-
-    public function getModel(): Model
-    {
-        return $this->model;
     }
 }

@@ -10,36 +10,16 @@ readonly class Product implements ISerializable
 {
     public function __construct(
         private string $id,
-        private string $description,
-        private Mileage $mileage,
-        private Price $price,
-        private ?Model $model = null
+        public string $description,
+        public Mileage $mileage,
+        public Price $price,
+        public ?Model $model = null
     ) {
     }
 
     public function getId(): string
     {
         return $this->id;
-    }
-
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    public function getMileage(): Mileage
-    {
-        return $this->mileage;
-    }
-
-    public function getPrice(): Price
-    {
-        return $this->price;
-    }
-
-    public function getModel(): ?Model
-    {
-        return $this->model;
     }
 
     /**

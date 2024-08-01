@@ -8,9 +8,9 @@ readonly class Model implements ISerializable
 {
     public function __construct(
         private string $id,
-        private string $name,
-        private string $slug,
-        private ?Brand $brand = null
+        public string $name,
+        public string $slug,
+        public ?Brand $brand = null
     ) {
     }
 
@@ -22,16 +22,6 @@ readonly class Model implements ISerializable
     public function getName(): string
     {
         return $this->name;
-    }
-
-    public function getSlug(): string
-    {
-        return $this->slug;
-    }
-
-    public function getBrand(): ?Brand
-    {
-        return $this->brand;
     }
 
     /**

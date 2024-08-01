@@ -14,8 +14,8 @@ class Price
     ];
 
     public function __construct(
-        private readonly int $amount,
-        private readonly string $currency
+        public readonly int $amount,
+        public readonly string $currency
     ) {
         if (! in_array($currency, self::$validCurrencies)) {
             throw new \DomainException('The Price currency is not valid!');
@@ -24,15 +24,5 @@ class Price
         if ($amount <= 0) {
             throw new \DomainException('The Price amount is not valid!');
         }
-    }
-
-    public function getAmount(): int
-    {
-        return $this->amount;
-    }
-
-    public function getCurrency(): string
-    {
-        return $this->currency;
     }
 }

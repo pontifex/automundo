@@ -14,21 +14,11 @@ class Mileage
     ];
 
     public function __construct(
-        private readonly int $distance,
-        private readonly string $unit
+        public readonly int $distance,
+        public readonly string $unit
     ) {
         if (! in_array($unit, self::$validUnits)) {
             throw new \DomainException('The Mileage unit is not valid!');
         }
-    }
-
-    public function getDistance(): int
-    {
-        return $this->distance;
-    }
-
-    public function getUnit(): string
-    {
-        return $this->unit;
     }
 }

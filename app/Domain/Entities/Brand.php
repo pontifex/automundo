@@ -8,24 +8,14 @@ readonly class Brand implements ISerializable
 {
     public function __construct(
         private string $id,
-        private string $name,
-        private string $slug
+        public string $name,
+        public string $slug
     ) {
     }
 
     public function getId(): string
     {
         return $this->id;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function getSlug(): string
-    {
-        return $this->slug;
     }
 
     /**

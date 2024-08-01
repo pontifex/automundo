@@ -13,12 +13,7 @@ readonly class ProductAdded
      * @psalm-api
      */
     public function __construct(
-        private Product $product
+        public Product $product
     ) {
-    }
-
-    public function getProduct(): Product
-    {
-        return $this->product;
     }
 }

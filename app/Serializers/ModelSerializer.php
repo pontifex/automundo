@@ -33,10 +33,10 @@ class ModelSerializer implements ISerializer
                     $serialized['id'] = $serializable->getId();
                     break;
                 case 'name':
-                    $serialized['name'] = mb_convert_case($serializable->getName(), MB_CASE_UPPER);
+                    $serialized['name'] = mb_convert_case($serializable->name, MB_CASE_UPPER);
                     break;
                 case 'slug':
-                    $serialized['slug'] = $serializable->getSlug();
+                    $serialized['slug'] = $serializable->slug;
                     break;
             }
         }

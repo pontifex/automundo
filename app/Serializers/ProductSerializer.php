@@ -33,15 +33,15 @@ class ProductSerializer implements ISerializer
                     $serialized['id'] = $serializable->getId();
                     break;
                 case 'description':
-                    $serialized['description'] = $serializable->getDescription();
+                    $serialized['description'] = $serializable->description;
                     break;
                 case 'mileage':
-                    $serialized['mileage_distance'] = $serializable->getMileage()->getDistance();
-                    $serialized['mileage_unit'] = $serializable->getMileage()->getUnit();
+                    $serialized['mileage_distance'] = $serializable->mileage->distance;
+                    $serialized['mileage_unit'] = $serializable->mileage->unit;
                     break;
                 case 'price':
-                    $serialized['price_amount'] = $serializable->getPrice()->getAmount();
-                    $serialized['price_currency'] = $serializable->getPrice()->getCurrency();
+                    $serialized['price_amount'] = $serializable->price->amount;
+                    $serialized['price_currency'] = $serializable->price->currency;
                     break;
             }
         }

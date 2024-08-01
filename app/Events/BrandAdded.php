@@ -13,12 +13,7 @@ readonly class BrandAdded
      * @psalm-api
      */
     public function __construct(
-        private Brand $brand
+        public Brand $brand
     ) {
-    }
-
-    public function getBrand(): Brand
-    {
-        return $this->brand;
     }
 }

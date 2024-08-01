@@ -15,9 +15,9 @@ class SQLModelRepository implements IModelRepository
     ): void {
         $modelORM = ModelORMFactory::makeModel(
             $model->getId(),
-            $model->getName(),
-            $model->getSlug(),
-            $model->getBrand()?->getId() ?? ''
+            $model->name,
+            $model->slug,
+            $model->brand?->getId() ?? ''
         );
 
         $modelORM->save();
