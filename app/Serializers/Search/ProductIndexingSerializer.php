@@ -35,11 +35,11 @@ class ProductIndexingSerializer implements ISerializer
             'index' => self::TYPE,
             'id' => $serializable->getId(),
             'body' => [
-                'description' => $serializable->getDescription(),
-                'mileage_distance' => $serializable->getMileage()->getDistance(),
-                'mileage_unit' => $serializable->getMileage()->getUnit(),
-                'price_amount' => $serializable->getPrice()->getAmount(),
-                'price_currency' => $serializable->getPrice()->getCurrency(),
+                'description' => $serializable->description,
+                'mileage_distance' => $serializable->mileage->distance,
+                'mileage_unit' => $serializable->mileage->unit,
+                'price_amount' => $serializable->price->amount,
+                'price_currency' => $serializable->price->currency,
             ],
         ];
     }

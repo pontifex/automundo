@@ -16,8 +16,8 @@ class SQLBrandRepository implements IBrandRepository
     ): void {
         $brandORM = BrandORMFactory::makeBrand(
             $brand->getId(),
-            $brand->getName(),
-            $brand->getSlug()
+            $brand->name,
+            $brand->slug
         );
 
         $brandORM->save();

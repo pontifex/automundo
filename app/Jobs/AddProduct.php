@@ -30,13 +30,13 @@ class AddProduct implements ShouldQueue
     public function handle(ProductService $service): void
     {
         $product = $service->addOne(
-            $this->command->getId(),
-            $this->command->getDescription(),
-            $this->command->getMileageDistance(),
-            $this->command->getMileageUnit(),
-            $this->command->getPriceAmount(),
-            $this->command->getPriceCurrency(),
-            $this->command->getModelId()
+            $this->command->id,
+            $this->command->description,
+            $this->command->mileageDistance,
+            $this->command->mileageUnit,
+            $this->command->priceAmount,
+            $this->command->priceCurrency,
+            $this->command->modelId
         );
 
         ProductAdded::dispatch($product);

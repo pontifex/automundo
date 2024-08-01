@@ -16,10 +16,10 @@ class SQLProductRepository implements IProductRepository
     ): void {
         $productORM = ProductORMFactory::makeProduct(
             $product->getId(),
-            $product->getDescription(),
-            $product->getMileage(),
-            $product->getPrice(),
-            $product->getModel()?->getId() ?? ''
+            $product->description,
+            $product->mileage,
+            $product->price,
+            $product->model?->getId() ?? ''
         );
 
         $productORM->save();

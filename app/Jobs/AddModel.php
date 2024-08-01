@@ -31,9 +31,9 @@ class AddModel implements ShouldQueue
         ModelService $modelService
     ): void {
         $model = $modelService->addOne(
-            $this->command->getId(),
-            $this->command->getName(),
-            $this->command->getBrandId()
+            $this->command->id,
+            $this->command->name,
+            $this->command->brandId
         );
 
         ModelAdded::dispatch($model);

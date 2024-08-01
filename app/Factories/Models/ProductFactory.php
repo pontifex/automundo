@@ -19,10 +19,10 @@ class ProductFactory
 
         $model->id = $id;
         $model->description = $description;
-        $model->mileageDistance = $mileage->getDistance();
-        $model->mileageUnit = $mileage->getUnit();
-        $model->priceAmount = $price->getAmount();
-        $model->priceCurrency = $price->getCurrency();
+        $model->mileageDistance = $mileage->distance;
+        $model->mileageUnit = $mileage->unit;
+        $model->priceAmount = $price->amount;
+        $model->priceCurrency = $price->currency;
         $model->model_id = $modelId;
 
         return $model;

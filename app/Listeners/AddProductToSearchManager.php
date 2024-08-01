@@ -24,13 +24,13 @@ class AddProductToSearchManager implements ShouldQueue
     public function handle(ProductAdded $event): void
     {
         $this->productSearchService->addOne(
-            $event->getProduct()->getId(),
-            $event->getProduct()->getDescription(),
-            $event->getProduct()->getMileage()->getDistance(),
-            $event->getProduct()->getMileage()->getUnit(),
-            $event->getProduct()->getPrice()->getAmount(),
-            $event->getProduct()->getPrice()->getCurrency(),
-            $event->getProduct()->getModel()?->getId() ?? ''
+            $event->product->getId(),
+            $event->product->description,
+            $event->product->mileage->distance,
+            $event->product->mileage->unit,
+            $event->product->price->amount,
+            $event->product->price->currency,
+            $event->product->model?->getId() ?? ''
         );
     }
 }

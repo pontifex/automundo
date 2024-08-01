@@ -27,8 +27,8 @@ class AddBrand implements ShouldQueue
     public function handle(BrandService $service): void
     {
         $brand = $service->addOne(
-            $this->command->getId(),
-            $this->command->getName()
+            $this->command->id,
+            $this->command->name
         );
 
         BrandAdded::dispatch($brand);
